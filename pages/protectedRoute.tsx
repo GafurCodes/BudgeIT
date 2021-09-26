@@ -1,10 +1,11 @@
-import { useSession } from "next-auth/client";
+import { useSession } from "next-auth/react";
 import AccessDenied from "../components/accessDenied";
 
 export default function ProtectedRoute() {
   //hook provided by next-auth
   //session is an object that contains expiration property and user property (with all the user info)
-  const [session, loading] = useSession();
+  const { data: session, status } = useSession();
+  const loading = status === "loading";
 
   //if the content is loading display loading
   if (typeof window !== "undefined" && loading) return <h1>loading...</h1>;

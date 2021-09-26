@@ -1,5 +1,5 @@
 //this function routes to the sign in page
-import { signIn } from "next-auth/client";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
 
 export default function AccessDenied() {
