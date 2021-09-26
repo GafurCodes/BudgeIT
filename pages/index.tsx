@@ -2,14 +2,16 @@ import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import prisma from "../util/prisma";
 
+//geting data from Prisma
 export const getStaticProps: GetStaticProps = async () => {
   const user = await prisma.user.findFirst();
-
   return { props: { user } };
 };
 
 const Home: NextPage = ({ user }) => {
+  //user comes from getStaticProps above
   const { name, email } = user;
+
   return (
     <div>
       <Head>
