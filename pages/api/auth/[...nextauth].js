@@ -7,6 +7,12 @@ const prisma = new PrismaClient();
 
 const options = {
   adapter: PrismaAdapter(prisma),
+  callbacks: {
+    async session({ session, user }) {
+      session.user.id = user.id;
+      return session;
+    },
+  },
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID,
