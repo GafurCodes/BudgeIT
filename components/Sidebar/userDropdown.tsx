@@ -17,9 +17,8 @@ interface Props {
 export default function SidebarUserDropdown({
   userInfo: { name, image },
 }: Props) {
-  console.log(name);
   return (
-    <Box boxShadow="lg" w="300px" h="100vh">
+    <Box>
       <Center>
         <Menu>
           <MenuButton
@@ -34,12 +33,12 @@ export default function SidebarUserDropdown({
                 name={name}
                 src={image}
                 alt={"your profile picture"}
-                ml="-10px"
+                ml="-15px"
               />
             }
             rightIcon={<FiChevronDown style={{ marginLeft: "20px" }} />}
           >
-            <Text fontSize="xl">{name}</Text>
+            <Text fontSize="lg">{name}</Text>
           </MenuButton>
           <MenuList width="260px">
             <MenuItem icon={<FiUser />}>Account</MenuItem>
